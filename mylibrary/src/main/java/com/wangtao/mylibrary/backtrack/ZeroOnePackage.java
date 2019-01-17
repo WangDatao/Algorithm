@@ -33,7 +33,7 @@ public class ZeroOnePackage {
         this.n = items.length;
         this.w = w;
         this.items = items;
-        memory = new boolean[n][w];
+        memory = new boolean[n][w+1];
     }
 
 
