@@ -31,4 +31,7 @@ public class Graph {
         adj[t].add(s);
     }
 
+    public LinkedList<Integer>[] getAdj() {
+        return adj;
+    }
 }
