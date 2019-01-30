@@ -59,5 +59,47 @@ public class TopoSort {
         }
     }
 
+    /**
+     * 深度优先搜索
+     */
+    public void topoSortByDFS(int v, Graph graph) {
+        //逆邻接表
+        LinkedList<Integer>[] inverseAdj = new LinkedList[v];
+        for (int i = 0; i < v; i++) {
+            inverseAdj[i] = new LinkedList<>();
+        }
+
+        //通过邻接表生成逆邻接表
+        LinkedList<Integer>[] adj = graph.adj;
+        for (int i = 0; i < v; i++) {
+            for (int j = 0; j < adj[i].size(); j++) {
+                Integer w = adj[i].get(j);
+                inverseAdj[w].add(i);
+            }
+        }
+
+        boolean[] visited = new boolean[v];
+        //深度优先遍历图
+        for (int i = 0; i < v; i++) {
+            if (!visited[i]) {
+                visited[i] = true;
+                dfs(i, inverseAdj, visited);
+            }
+        }
+
+
+    }
+
+    private void dfs(int vertex, LinkedList<Integer> inverseAdj[], boolean[] visited) {
+        for (int i = 0; i < inverseAdj[vertex].size(); i++) {
+            Integer w = inverseAdj[vertex].get(i);
+            if (visited[w]) {
+                continue;
+            }
+            visited[w] = true;
+            dfs(w, inverseAdj, visited);
+        }
+        System.out.print(" ->" + vertex);
+    }
 
 }
