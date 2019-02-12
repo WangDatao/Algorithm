@@ -84,7 +84,7 @@ public class Heap {
         /**
          * 完全二叉树的特性：n/2+1 到 n都是 叶子节点，不需要堆化
          */
-        for (int i = n / 2; i >= 1; i++) {
+        for (int i = n / 2; i >= 1; i--) {
             heapify(a, n, i);
         }
     }
