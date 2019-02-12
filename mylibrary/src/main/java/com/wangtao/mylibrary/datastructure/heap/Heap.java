@@ -27,7 +27,7 @@ public class Heap {
     }
 
     /**
-     * 插入数据，要保持数据的有序，自下往上堆化
+     * 第一种建堆的方法：插入数据，自下往上堆化
      *
      * @param data
      */
@@ -61,7 +61,7 @@ public class Heap {
         }
     }
 
-    private void heapify(int[] a, int n, int i) {
+    public void heapify(int[] a, int n, int i) {
         while (true) {
             int maxPos = i;
             if (i * 2 <= n && a[i] < a[i * 2]) maxPos = i * 2;
@@ -72,4 +72,20 @@ public class Heap {
         }
     }
 
+
+    /**
+     * 建堆的第二种方法：对每个非叶子节点进行自上而下堆化
+     * 第一种：插入，自下而上的堆化
+     *
+     * @param a
+     * @param n
+     */
+    public void buildHeap(int[] a, int n) {
+        /**
+         * 完全二叉树的特性：n/2+1 到 n都是 叶子节点，不需要堆化
+         */
+        for (int i = n / 2; i >= 1; i++) {
+            heapify(a, n, i);
+        }
+    }
 }
