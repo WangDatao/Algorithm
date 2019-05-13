@@ -1,4 +1,4 @@
-package com.wangtao.mylibrary.classic;
+package com.wangtao.mylibrary.classic.linkedlist;
 
 import com.wangtao.mylibrary.datastructure.linkedlist.Node;
 
