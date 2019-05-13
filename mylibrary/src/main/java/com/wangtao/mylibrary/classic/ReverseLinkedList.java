@@ -9,7 +9,7 @@ import com.wangtao.mylibrary.datastructure.linkedlist.Node;
  */
 public class ReverseLinkedList<Data> {
 
-    private Node<Data> head, tail;
+    public Node<Data> head, tail;
 
     public ReverseLinkedList(Data... values) {
         for (Data value : values) {
