@@ -7,7 +7,7 @@ import com.wangtao.mylibrary.datastructure.linkedlist.Node;
 
 /**
  * @author wangtao
- * @Description: 堆应用：合并N个有序小文件
+ * @Description: 堆应用(优先级队列)：合并N个有序小文件
  * @date 2019/7/1 11:27
  */
 public class MergeNOrdered {
