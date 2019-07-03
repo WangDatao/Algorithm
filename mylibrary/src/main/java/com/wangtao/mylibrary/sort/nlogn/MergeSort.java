@@ -1,5 +1,7 @@
 package com.wangtao.mylibrary.sort.nlogn;
 
+import com.wangtao.mylibrary.Utils;
+
 /**
  * @author wangtao
  * @Description:归并排序：O(nlogn);稳定排序；非原地
@@ -10,6 +12,12 @@ public class MergeSort {
      * 时间复杂度，最好、最坏都是O(nlogn)
      * 空间复杂度：O(n)
      */
+
+    public static void main(String[] args) {
+        int[] arr = {2, 1, 20, 13, 33, -1, 0};
+        MergeSort.sort(arr);
+        Utils.printArr(arr);
+    }
 
     public static void sort(int[] arr) {
         mergeSort(arr, 0, arr.length - 1);
@@ -43,9 +51,9 @@ public class MergeSort {
         //剩余的
         int leftStart;
         int leftEnd;
-        if (i <= p) {
+        if (i <= m) {
             leftStart = i;
-            leftEnd = p;
+            leftEnd = m;
         } else {
             leftStart = j;
             leftEnd = q;
