@@ -1,4 +1,4 @@
-package com.wangtao.mylibrary.dynamicprogramming;
+package com.wangtao.mylibrary.classic.dynamicprogramming;
 
 import java.util.LinkedList;
 

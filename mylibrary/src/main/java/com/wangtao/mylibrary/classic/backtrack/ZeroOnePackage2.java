@@ -1,4 +1,4 @@
-package com.wangtao.mylibrary.backtrack;
+package com.wangtao.mylibrary.classic.backtrack;
 
 /**
  * @author wangtao

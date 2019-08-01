@@ -1,4 +1,4 @@
-package com.wangtao.mylibrary.datastructure.heap.practice;
+package com.wangtao.mylibrary.classic.heap;
 
 import com.wangtao.mylibrary.Utils;
 

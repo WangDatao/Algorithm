@@ -1,4 +1,4 @@
-package com.wangtao.mylibrary.sort.n2;
+package com.wangtao.mylibrary.classic.sort.n2;
 
 /**
  * @author wangtao

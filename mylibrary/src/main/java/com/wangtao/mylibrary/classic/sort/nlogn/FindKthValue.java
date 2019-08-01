@@ -1,4 +1,4 @@
-package com.wangtao.mylibrary.sort.nlogn;
+package com.wangtao.mylibrary.classic.sort.nlogn;
 
 import com.wangtao.mylibrary.Utils;
 
