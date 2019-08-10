@@ -1,4 +1,4 @@
-package com.wangtao.mylibrary.algorithm.classic;
+package com.wangtao.mylibrary.algorithm.bitoperation;
 
 /**
  * @author wangtao
