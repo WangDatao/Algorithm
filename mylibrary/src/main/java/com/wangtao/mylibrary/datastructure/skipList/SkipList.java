@@ -44,7 +44,7 @@ public class SkipList {
             update[i] = head;
         }
         //记录每层小于value值中最大值
-        // record every level largest value which smaller than insert value in update[]
+        // record every level largest val which smaller than insert val in update[]
         Node p = head;
         for (int i = level - 1; i >= 0; --i) {
             while (p.forwards[i] != null && p.forwards[i].data < value) {

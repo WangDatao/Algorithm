@@ -10,7 +10,7 @@ public class PrintTree {
 
     public static void prePrint(TreeNode node) {
         if (node != null) {
-            System.out.print(node.value + " ");
+            System.out.print(node.val + " ");
             prePrint(node.left);
             prePrint(node.right);
 
@@ -21,7 +21,7 @@ public class PrintTree {
     public static void midPrint(TreeNode node) {
         if (node != null) {
             midPrint(node.left);
-            System.out.print(node.value + " ");
+            System.out.print(node.val + " ");
             midPrint(node.right);
         }
     }
@@ -30,7 +30,7 @@ public class PrintTree {
         if (node != null) {
             aftPrint(node.left);
             aftPrint(node.right);
-            System.out.print(node.value + " ");
+            System.out.print(node.val + " ");
         }
     }
 }

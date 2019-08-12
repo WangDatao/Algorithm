@@ -6,19 +6,19 @@ package com.wangtao.mylibrary.datastructure.tree;
  * @date 2019/3/13 14:12
  */
 public class TreeNode {
-    public int value;
+    public int val;
     public TreeNode left;
     public TreeNode right;
 
     public TreeNode() {
     }
 
-    public TreeNode(int value) {
-        this.value = value;
+    public TreeNode(int val) {
+        this.val = val;
     }
 
-    public TreeNode(int value, TreeNode left, TreeNode right) {
-        this.value = value;
+    public TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
         this.left = left;
         this.right = right;
     }

@@ -29,8 +29,8 @@ public class BinarySearchTree {
     public TreeNode search(int value) {
         TreeNode p = tree;
         while (p != null) {
-            if (p.value == value) return p;
-            if (p.value > value) {
+            if (p.val == value) return p;
+            if (p.val > value) {
                 p = p.left;
             } else {
                 p = p.right;
@@ -51,7 +51,7 @@ public class BinarySearchTree {
         TreeNode p = tree;
 
         while (p != null) {
-            if (p.value > value) {
+            if (p.val > value) {
                 if (p.left == null) {
                     p.left = node;
                     return;
@@ -83,11 +83,11 @@ public class BinarySearchTree {
         TreeNode pre = null;
         TreeNode result = null;
         //查找要删除的节点
-        while (p != null && p.value != value) {
-            if (p.value > value) {
+        while (p != null && p.val != value) {
+            if (p.val > value) {
                 p = p.left;
                 pre = p;
-            } else if (p.value < value) {
+            } else if (p.val < value) {
                 p = p.right;
                 pre = p;
             }
@@ -104,7 +104,7 @@ public class BinarySearchTree {
                 minP = minP.left;
             }
             //赋值
-            p.value = minP.value;
+            p.val = minP.val;
             //将要删除的指针指向，minP
             p = minP;
             pre = minPre;
