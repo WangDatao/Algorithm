@@ -1,5 +1,7 @@
 package com.wangtao.mylibrary.algorithm.linkedlist;
 
+import com.wangtao.mylibrary.datastructure.linkedlist.ListNode;
+
 /**
  * offer(15):获取链表倒数第K个节点的值
  *
@@ -49,14 +51,5 @@ public class GetNthFromEnd {
         }
 
         return target;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next = null;
-
-        public ListNode(int val) {
-            this.val = val;
-        }
     }
 }

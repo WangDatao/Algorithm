@@ -1,84 +1,77 @@
 package com.wangtao.mylibrary.algorithm.linkedlist;
 
-import com.wangtao.mylibrary.datastructure.linkedlist.Node;
+import com.wangtao.mylibrary.datastructure.linkedlist.ListNode;
 
 /**
  * @author wangtao
- * @Description:单链表翻转
+ * @Description: offer(16):单链表翻转
  * @date 2019/4/19 16:23
  */
-public class ReverseLinkedList<Data> {
+public class ReverseLinkedList {
 
-    public Node<Data> head, tail;
-
-    public ReverseLinkedList(Data... values) {
-        for (Data value : values) {
-            if (head == null) {
-                head = tail = new Node<>(value);
-            } else {
-                Node<Data> node = new Node<>(value);
-                tail.next = node;
-                tail = node;
-            }
-        }
+    public static void main(String[] args) {
+        test1();
+        test2();
     }
 
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder("[");
-        Node cur = head;
+    private static void test1() {
+        ReverseLinkedList list = new ReverseLinkedList();
 
-        while (cur != null) {
-            builder.append(cur.value)
-                    .append(" ");
-            cur = cur.next;
-        }
-        builder.append("]");
-        return builder.toString();
+        ListNode head = ListNode.createLinkedList(5);
+        ListNode.printList(list.reverse(head));
+    }
+
+    private static void test2() {
+        ReverseLinkedList list = new ReverseLinkedList();
+
+        ListNode head = ListNode.createLinkedList(10);
+        list.reverseByRecursive(head);
+        ListNode.printList(list.newHead);
     }
 
     /**
-     * 循环迭代
+     * 循环方式
      *
+     * @param head
      * @return
      */
-    public ReverseLinkedList<Data> reverseByLoop() {
-        //空链表或者单元素，无需改变
-        if (head == tail) return this;
+    public ListNode reverse(ListNode head) {
+        //空链表或者只有一个节点
+        if (head == null || head.next == null) return head;
 
-        Node<Data> cur = head;
-        Node<Data> next = cur.next;
-
+        ListNode cur = head;
+        ListNode next = head.next;
         while (next != null) {
-            Node<Data> nextNext = next.next;
-
+            ListNode nn = next.next;
             next.next = cur;
             cur = next;
-            next = nextNext;
+            next = nn;
         }
-        //处理下head tail
-        tail = head;
+        //原链表头节点，现在变成了尾节点，next指针需要置空
         head.next = null;
+        //cur节点是原链表的尾节点，现在变成头节点
         head = cur;
-
-        return this;
+        return head;
     }
 
-    public ReverseLinkedList<Data> reversByRecursive() {
-        if (head == tail) return this;
-        Node<Data> oldTail = tail;
-        tail = reverseFrom(head);
-        tail.next =null;
-        head = oldTail;
+    public ListNode newHead;
 
-        return this;
+    public void reverseByRecursive(ListNode head) {
+        if (head == null || head.next == null) return;
+
+        reverseFrom(head);
+        head.next = null;
     }
 
-    private Node<Data> reverseFrom(Node<Data> from) {
-        if (from == tail) return from;
-        Node<Data> end = reverseFrom(from.next);
-        end.next = from;
+    private ListNode reverseFrom(ListNode from) {
+        if (from.next != null) {
+            ListNode next = reverseFrom(from.next);
+            next.next = from;
+        } else {
+            newHead = from;
+        }
         return from;
     }
+
 
 }
