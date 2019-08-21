@@ -21,16 +21,22 @@ public class FindPath {
         //         /      \
         //        5        12
         //       /\        /
-        //      6  7     -1
+        //      7  7     -1
+        //     /
+        //    -1
+        //    /
+        //   1
         TreeNode root = new TreeNode();
         root.val = 10;
         root.left = new TreeNode(5);
-        root.left.left = new TreeNode(6);
+        root.left.left = new TreeNode(7);
+        root.left.left.left = new TreeNode(1);
+        root.left.left.left.left = new TreeNode(-1);
         root.left.right = new TreeNode(7);
         root.right = new TreeNode(12);
         root.right.left = new TreeNode(-1);
-        System.out.println("findPath(root, 21);");
-        finder.findPath(root, 21);
+        System.out.println("findPath(root, 22);");
+        finder.findPath(root, 22);
     }
 
     public void findPath(TreeNode root, int target) {
@@ -40,23 +46,30 @@ public class FindPath {
         }
     }
 
+    /**
+     * 需要考虑负值的情况
+     *
+     * @param curNode
+     * @param cur
+     * @param target
+     * @param list
+     */
     public void findPath(TreeNode curNode, int cur, int target, List<TreeNode> list) {
         if (curNode != null) {
             //加上当前节点的值
             cur += curNode.val;
             //当前节点入队列
             list.add(curNode);
-            //如果值与目标值不相等，取左/右节点继续比较
-            if (cur != target) {
+            //如果值与目标值不相等或者不是叶子节点，取左/右节点继续比较
+            if (cur != target || curNode.left != null || curNode.right != null) {
                 findPath(curNode.left, cur, target, list);//①
                 findPath(curNode.right, cur, target, list);//②
             } else {
-                if (curNode.left == null && curNode.right == null) {//如果相等,并且当前节点是尾节点，输出结果
-                    for (TreeNode node : list) {
-                        System.out.print(node.val + " ");
-                    }
-                    System.out.println();
+                //如果相等,并且当前节点是叶子节点，输出结果
+                for (TreeNode node : list) {
+                    System.out.print(node.val + " ");
                 }
+                System.out.println();
             }
             //删除当前节点，相当于退回到上一层，换成右节点（②）继续递归
             list.remove(list.size() - 1);
